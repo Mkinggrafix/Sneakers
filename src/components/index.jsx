@@ -1,0 +1,11 @@
+export { default as Header } from './Header/Header';
+export { default as Footer } from './Footer/Footer';
+export { default as Cart } from './Cart/Cart';
+export { default as Sidebar } from './Sidebar/Sidebar';
+export { default as Newsletter } from './Newsletter/Newsletter';
+export { default as Home } from './Home/Home';
+export { default as Men } from './NavContent/Men';
+export { default as Women } from './NavContent/Women';
+export { default as About } from './About/About';
+export { default as Login } from './Login/Login';
+export { default as Contact } from './Contact/Contact';
