@@ -18,7 +18,7 @@ function SingleProduct() {
     <div>
       <img src={image?.url} alt="" />
       <h2>{name}</h2>
-      <h3>{price.formatted_with_symbol}</h3>
+      <h3>{price?.formatted_with_symbol}</h3>
       <button onClick={() => handleAddToCart(productId, 1)}>Add to cart</button>
     </div>
   );
