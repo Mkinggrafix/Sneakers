@@ -6,22 +6,20 @@ import { Header, Footer, Cart, Sidebar, Newsletter, Home, About, Login, Contact,
 import { commerce } from './lib/Commerce';
 
 function App() {
-    const [showCart, setShowCart] = useState(false)
+    const [isCartLoading, setIsCartLoading] = useState(true);
     const [showSideBar, setShowSideBar] = useState(false)
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({})
-    const [cartList, setCartList] = useState([])
-
-  // const fetchProducts = async () => {
-  //   const { data } = await commerce.products.list();
-
-  //   setProducts(data)
-  // }
+    const [cartList, setCartList] = useState([]);
+    const [isAddToCartLoading, setIsAddToCartLoading] = useState(true)
+    const [deleteLoad, setdeleteLoad] = useState(true)
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
 
+    // console.log(data)
     setProducts(data)
+    setIsCartLoading(false)
   }
 
   const fetchCart = async () => {
@@ -37,10 +35,17 @@ function App() {
     const { cart } = await commerce.cart.add(productId, quantity)
 
     setCart(cart)
+    setIsAddToCartLoading(false)
   }
 
-  const onDelete = async ( productId, quantity ) => {
-    const { cart } = await commerce.cart.remove(productId, quantity)
+  const updateCart = async (productId, quantity) => {
+    const { cart } = await commerce.cart.update(productId, { quantity })
+
+    setCart(cart)
+  }
+
+  const onDelete = async ( productId ) => {
+    const { cart } = await commerce.cart.remove(productId)
 
     setCart(cart)
   }
@@ -58,24 +63,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header showCart={showCart} 
-        setShowCart={setShowCart} 
-        showSideBar={showSideBar} 
+        <Header showSideBar={showSideBar} 
         setShowSideBar={setShowSideBar} 
         cartItem={cart.total_items}  />
-
-        {showCart && <Cart showCart={showCart} 
-        setShowCart={setShowCart} 
-        cartList={cartList} 
-        cart={cart} 
-        onDelete={onDelete}
-        onClear={onClear} />}
-
         <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
-
         
         <Routes>
-          <Route path='/' element={<Home products={products} handleAddToCart={handleAddToCart} />} />
+          <Route path='/' element={<Home products={products} handleAddToCart={handleAddToCart} isCartLoading={isCartLoading} isAddToCartLoading={isAddToCartLoading} setIsAddToCartLoading={setIsAddToCartLoading}  />} />
+          <Route path='/cart' element={<Cart cartList={cartList} updateCart={updateCart} cart={cart} onDelete={onDelete} onClear={onClear} /> } />
           <Route path='/men' element={<Men products={products} handleAddToCart={handleAddToCart} />} />
           <Route path='/women' element={<Women products={products} handleAddToCart={handleAddToCart} />} />
           <Route path='/about' element={<About />} />

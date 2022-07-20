@@ -1,6 +1,12 @@
-const Product = ({ product, handleAddToCart }) => {
+import { Link } from "react-router-dom"
+
+const Product = ({ product, handleAddToCart, setIsAddToCartLoading }) => {
+  const clickCart = () => {
+    setIsAddToCartLoading(true)
+  }
+
   return (
-    <div className="product">
+      <div className="product">
         <div className="box">
           <img src={product.image.url} alt="" />
           <div className="box_content">
@@ -9,7 +15,7 @@ const Product = ({ product, handleAddToCart }) => {
               <p>{product.price.formatted_with_symbol}</p>
             </div>
             <div className="icon">
-              <i className="bi bi-cart-check-fill" onClick={() => handleAddToCart(product.id, 1)}></i>
+              <i className="bi bi-cart-check-fill" onClick={() => {handleAddToCart(product.id, 1)}}></i>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
+import AddToCartLoad from "../Loading/AddToCartLoad"
 import Products from "../Products/Products"
 
-const Home = ({ products, handleAddToCart }) => {
+const Home = ({ products, handleAddToCart, isCartLoading, isAddToCartLoading, setIsAddToCartLoading }) => {
   return (
     <div className="home">
         <div className="box_top">
@@ -61,7 +62,11 @@ const Home = ({ products, handleAddToCart }) => {
           </div>
         </div>
 
-        <Products products={products} handleAddToCart={handleAddToCart} />
+        <Products products={products} handleAddToCart={handleAddToCart} isCartLoading={isCartLoading} />
+
+        <div className="loading_state">
+          <AddToCartLoad isAddToCartLoading={isAddToCartLoading} setIsAddToCartLoading={setIsAddToCartLoading} />
+        </div>
     </div>
   )
 }

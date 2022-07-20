@@ -211,5 +211,14 @@
         .products{
             grid-template-columns: 1fr;
         }
+
+        .products_buttons{
+            flex-direction: column;
+            align-items: flex-start;
+
+            .product_product_button{
+                padding-top: .5rem;
+            }
+        }
     }
 }

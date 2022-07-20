@@ -45,3 +45,38 @@
         }
     }
 }
+
+.isLoading{
+    width: 80px;
+    height: 80px;
+    margin: 1rem auto;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 10px solid var(--dark-blue);
+    border-top-color: var(--dark-blue);
+    border-left-color: var(--dark-blue);
+    border-right-color: var(--orange);
+    border-bottom-color: var(--orange);
+    animation: isLoading .5s infinite;
+}
+
+@keyframes isLoading {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.isAddToCart{
+    width: 120%;
+    position: fixed;
+    top: 3rem;
+    color: #fff;
+    background-color: var(--orange);
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
