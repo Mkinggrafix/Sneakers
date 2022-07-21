@@ -1,22 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "../css/style.css";
-import {
-  Header,
-  Footer,
-  Cart,
-  Sidebar,
-  Newsletter,
-  Home,
-  About,
-  Login,
-  Contact,
-  Men,
-  Women,
-} from "./components";
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
 import { commerce } from "./lib/Commerce";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Login from "./pages/Login/Login";
+import Contact from "./pages/Contact/Contact";
+import Cart from "./components/Cart/Cart";
+import Men from "./pages/Men";
+import Women from "./pages/Women";
+import Newsletter from "./components/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isCartLoading, setIsCartLoading] = useState(true);
