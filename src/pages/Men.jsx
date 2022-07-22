@@ -1,6 +1,11 @@
 import Items from "../components/NavContent/Items";
+import AddToCartLoad from "../components/Loading/AddToCartLoad";
 
-const Men = ({ products, handleAddToCart }) => {
+const Men = ({ 
+  products, 
+  handleAddToCart, 
+  isCartLoading 
+}) => {
   return (
     <div className="home">
       <div className="box_top">
@@ -88,7 +93,11 @@ const Men = ({ products, handleAddToCart }) => {
         </div>
       </div>
 
-      <Items products={products} handleAddToCart={handleAddToCart} />
+      <Items 
+        products={products} 
+        handleAddToCart={handleAddToCart} 
+        isCartLoading={isCartLoading} 
+      />
     </div>
   );
 };

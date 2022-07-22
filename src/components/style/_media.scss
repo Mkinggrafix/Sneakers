@@ -32,6 +32,24 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
+    .single_product{
+        .box{
+            &_flex{
+                flex-direction: column;
+
+                .right_box{
+                    margin-top: 1rem;
+                    margin-left: -2rem;
+                    
+                    
+                    &_box{
+                        margin-left: -2rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 680px) {
@@ -218,6 +236,27 @@
 
             .product_product_button{
                 padding-top: .5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .single_product{
+        .box{
+            &_flex{
+                
+                .right_box{
+                    
+                   &_box{
+                    .promo{
+                        h4,
+                        p{
+                            font-size: .8rem;
+                        }
+                    }
+                   }
+                }
             }
         }
     }

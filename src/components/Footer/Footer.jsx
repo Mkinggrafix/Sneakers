@@ -32,7 +32,7 @@ const Footer = () => {
 
                 <ul>
                     <li>Sell on Sneakers</li>
-                    <li>Become a Slaes Consultant</li>
+                    <li>Become a Sales Consultant</li>
                     <li>Become a Sneakers Vendor</li>
                     <li>Join Sneakers DA Academy</li>
                 </ul>
@@ -45,7 +45,7 @@ const Footer = () => {
             <ul>
                 <li><i className="bi bi-facebook"></i></li>
                 <li><i className="bi bi-twitter"></i></li>
-                <li><i className="bi bi-youtube"></i></li>
+                <li><i className="bi bi-whatsapp"></i></li>
                 <li><i className="bi bi-instagram"></i></li>
             </ul>
         </div>

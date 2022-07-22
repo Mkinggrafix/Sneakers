@@ -1,12 +1,8 @@
-import AddToCartLoad from "../../components/Loading/AddToCartLoad";
 import Products from "../../components/Products/Products";
 
 const Home = ({
   products,
-  handleAddToCart,
-  isCartLoading,
-  isAddToCartLoading,
-  setIsAddToCartLoading,
+  isCartLoading
 }) => {
   return (
     <div className="home">
@@ -97,16 +93,8 @@ const Home = ({
 
       <Products
         products={products}
-        handleAddToCart={handleAddToCart}
         isCartLoading={isCartLoading}
       />
-
-      <div className="loading_state">
-        <AddToCartLoad
-          isAddToCartLoading={isAddToCartLoading}
-          setIsAddToCartLoading={setIsAddToCartLoading}
-        />
-      </div>
     </div>
   );
 };

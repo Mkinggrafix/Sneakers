@@ -22,7 +22,6 @@ function App() {
   const [cart, setCart] = useState({});
   const [cartList, setCartList] = useState([]);
   const [isAddToCartLoading, setIsAddToCartLoading] = useState(true);
-  const [deleteLoad, setdeleteLoad] = useState(true);
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -32,6 +31,7 @@ function App() {
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
+    console.log(cart)
   };
 
   useEffect(() => {
@@ -62,6 +62,7 @@ function App() {
     const { cart } = await commerce.cart.empty();
 
     setCart(cart);
+    setIsEmptyLoad(false)
   };
 
   useEffect(() => {
@@ -86,8 +87,6 @@ function App() {
                 products={products}
                 handleAddToCart={handleAddToCart}
                 isCartLoading={isCartLoading}
-                isAddToCartLoading={isAddToCartLoading}
-                setIsAddToCartLoading={setIsAddToCartLoading}
               />
             }
           />
@@ -100,25 +99,39 @@ function App() {
                 cart={cart}
                 onDelete={onDelete}
                 onClear={onClear}
+                isCartLoading={isCartLoading}
               />
             }
           />
           <Route
             path="/men"
             element={
-              <Men products={products} handleAddToCart={handleAddToCart} />
+              <Men 
+                products={products} 
+                handleAddToCart={handleAddToCart}
+                isCartLoading={isCartLoading}
+              />
             }
           />
           <Route
             path="/women"
             element={
-              <Women products={products} handleAddToCart={handleAddToCart} />
+              <Women 
+                products={products} 
+                handleAddToCart={handleAddToCart}
+                isCartLoading={isCartLoading}
+               />
             }
           />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/product/:id" element={
+            <SingleProduct 
+              handleAddToCart={handleAddToCart}
+              isAddToCartLoading={isAddToCartLoading}
+              setIsAddToCartLoading={setIsAddToCartLoading}
+              />} />
         </Routes>
 
         <Newsletter />

@@ -1,6 +1,10 @@
 import WomenItem from "../components/NavContent/WomenItem";
 
-const Women = ({ products, handleAddToCart }) => {
+const Women = ({ 
+  products, 
+  handleAddToCart, 
+  isCartLoading 
+}) => {
   return (
     <div className="home">
       <div className="box_top">
@@ -88,7 +92,11 @@ const Women = ({ products, handleAddToCart }) => {
         </div>
       </div>
 
-      <WomenItem products={products} handleAddToCart={handleAddToCart} />
+      <WomenItem 
+        products={products} 
+        handleAddToCart={handleAddToCart} 
+        isCartLoading={isCartLoading} 
+      />
     </div>
   );
 };

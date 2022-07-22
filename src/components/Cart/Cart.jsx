@@ -1,7 +1,17 @@
+import { useState } from "react";
 import CartContent from "./CartContent";
 
-const Cart = ({ cart, cartList, onDelete, onClear, updateCart }) => {
-  return (
+const Cart = ({ 
+  cart, 
+  cartList, 
+  onDelete, 
+  onClear, 
+  updateCart,
+  isCartLoading
+}) => {
+  return isCartLoading ? (
+    <div className="isLoading cartLoad"></div>
+    ) : (
     <div className="home">
       <h3>Your Shopping Cart</h3>
       <div className="products">
